@@ -7,7 +7,7 @@ public class ContiguousArray {
 
     /**
      * Problem Statement:  {@link "https://leetcode.com/articles/contiguous-array/"}
-     * Given a binary array, find the maximum length of a contiguous subarray0sand1s with equal number of 0 and 1
+     * Given a binary array, find the maximum length of a contiguous subarray with equal number of 0 and 1
      */
 
 
