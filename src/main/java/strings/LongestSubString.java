@@ -57,4 +57,30 @@ public class LongestSubString {
         return out.toString();
     }
 
+
+    public String kDistinct(String s, int k){
+
+        int begin = 0, end = 0, counter = 0, len = 0;
+        Map<Character, Integer> map = new HashMap<>();
+
+        while(end < s.length()){
+            char endChar = s.charAt(end);
+            map.put(endChar, map.getOrDefault(endChar, 0) + 1);
+            if(map.get(endChar) == 1) counter++;
+
+            while(counter > k){
+
+                char beginChar = s.charAt(begin);
+                map.put(beginChar, map.get(beginChar) - 1 );
+                if(map.get(beginChar) == 0) counter--;
+                begin++;
+
+            }
+
+            len = Math.max(len, end - begin);
+        }
+
+        return s.substring(begin, end);
+    }
+
 }
