@@ -1,9 +1,9 @@
 package hackerrank;
 
 /**
- * Steve has a string of lowercase characters in range ascii[‘a’..’z’]. He wants to reduce the string to its shortest length by doing a series of operations. In each operation he selects a pair of adjacent lowercase letters that match, and he deletes them. For instance, the string aab could be shortened to b in one operation.
+ * Steve has a string of lowercase characters in range ascii[a..z]. He wants to reduce the string to its shortest length by doing a series of operations. In each operation he selects a pair of adjacent lowercase letters that match, and he deletes them. For instance, the string aab could be shortened to b in one operation.
  *
- * Steve’s task is to delete as many characters as possible using this method and print the resulting string. If the final string is empty, print Empty String
+ * Steve's task is to delete as many characters as possible using this method and print the resulting string. If the final string is empty, print Empty String
  *
  * Sample Input 0
  *
@@ -15,7 +15,7 @@ package hackerrank;
  *
  * Steve performs the following sequence of operations to get the final string:
  *
- * aaabccddd → abccddd → abddd → abd
+ * aaabccddd -> abccddd -> abddd -> abd
  */
 public class SuperReducedString {
 
