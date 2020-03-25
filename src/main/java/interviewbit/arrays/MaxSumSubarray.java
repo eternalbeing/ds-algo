@@ -76,4 +76,22 @@ public class MaxSumSubarray {
         }
         return out;
     }
+
+    public int[] maxSumSubArrayNonNegativeIntegers(int[] A) {
+        int[] out = new int[A.length];
+
+        int maxEndingHere = 0, maxSoFar = 0;
+        int begin = 0, end = 0;
+
+        for (int i = 0; i < A.length; i++) {
+            if (A[i] < 0) {
+                begin++;
+            } else {
+                maxEndingHere = maxEndingHere + A[i];
+                maxSoFar = Math.max(maxSoFar, maxEndingHere);
+            }
+        }
+
+        return out;
+    }
 }
