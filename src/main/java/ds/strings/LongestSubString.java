@@ -4,20 +4,46 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- *
  * Sliding Window :
- *
+ * <p>
  * https://medium.com/leetcode-patterns/leetcode-pattern-2-sliding-windows-for-strings-e19af105316b
- *
- *
  */
 
 public class LongestSubString {
 
 
-    public String longestSubstringWithoutRepeatingCharacters(String string) {
+    public String longestSubstringWithoutRepeatingCharacters(String input) {
 
-        return null;
+        Map<Character, Integer> visited = new HashMap<>();
+        String output = "";
+
+        for (int start = 0, end = 0; end < input.length(); end++) {
+            char currChar = input.charAt(end);
+            if (visited.containsKey(currChar)) {
+                start = Math.max(visited.get(currChar)+1, start);
+            }
+            if (output.length() < end - start + 1) {
+                output = input.substring(start, end + 1);
+            }
+            visited.put(currChar, end);
+        }
+        return output;
+    }
+
+    public int lengthOfLongestSubstringWithoutRepeatingCharacters(String input){
+        Map<Character, Integer> visited = new HashMap<>();
+        int maxLen = 0;
+        for (int start = 0, end = 0; end < input.length(); end++) {
+            char currChar = input.charAt(end);
+            if (visited.containsKey(currChar)) {
+                start = Math.max(visited.get(currChar)+1, start);
+            }
+            if (maxLen < end - start + 1) {
+                maxLen = end - start + 1;
+            }
+            visited.put(currChar, end);
+        }
+        return maxLen;
     }
 
     public String longestSubstringWithKDistinctCharacters(String string, int k) {
@@ -51,28 +77,28 @@ public class LongestSubString {
             }
         }
 
-        for(int i=start; i<end; i++){
+        for (int i = start; i < end; i++) {
             out.append(string.charAt(i));
         }
         return out.toString();
     }
 
 
-    public String kDistinct(String s, int k){
+    public String kDistinct(String s, int k) {
 
         int begin = 0, end = 0, counter = 0, len = 0;
         Map<Character, Integer> map = new HashMap<>();
 
-        while(end < s.length()){
+        while (end < s.length()) {
             char endChar = s.charAt(end);
             map.put(endChar, map.getOrDefault(endChar, 0) + 1);
-            if(map.get(endChar) == 1) counter++;
+            if (map.get(endChar) == 1) counter++;
 
-            while(counter > k){
+            while (counter > k) {
 
                 char beginChar = s.charAt(begin);
-                map.put(beginChar, map.get(beginChar) - 1 );
-                if(map.get(beginChar) == 0) counter--;
+                map.put(beginChar, map.get(beginChar) - 1);
+                if (map.get(beginChar) == 0) counter--;
                 begin++;
 
             }
