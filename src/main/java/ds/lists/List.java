@@ -27,4 +27,16 @@ public abstract class List {
 
         return arr;
     }
+
+    public LinkedList createList(int[] arr) {
+        LinkedList list = new LinkedList();
+        list.head = new LinkedList.Node(arr[0]);
+        LinkedList.Node temp = list.head;
+        for (int i = 1; i < arr.length; i++) {
+            LinkedList.Node node = new LinkedList.Node(arr[i]);
+            temp.next = node;
+            temp = node;
+        }
+        return list;
+    }
 }

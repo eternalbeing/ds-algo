@@ -4,7 +4,7 @@ public class LinkedList extends List {
 
     Node head;
 
-     public static class Node {
+    public static class Node {
 
         int data;
         Node next;
@@ -12,6 +12,9 @@ public class LinkedList extends List {
         Node(int data) {
             this.data = data;
             this.next = null;
+        }
+
+        Node() {
         }
 
     }
